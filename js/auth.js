@@ -1,12 +1,16 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
 
 // Sign Up Function
 function signUp() {
     var email = document.getElementById('signup-email').value;
     var password = document.getElementById('signup-password').value;
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Sign-up successful.
         })
@@ -20,7 +24,7 @@ function signIn() {
     var email = document.getElementById('signin-email').value;
     var password = document.getElementById('signin-password').value;
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             // Sign-in successful.
         })
