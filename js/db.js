@@ -1,4 +1,4 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import {
   getFirestore,
   collection,
@@ -7,23 +7,18 @@ import {
   addDoc,
   deleteDoc,
   doc,
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
 
-  apiKey: "AIzaSyBezM9GxX-vF8p6rHfcTPGEKDJs_YYlT_E",
-
-  authDomain: "task-manager-2-c4224.firebaseapp.com",
-
-  projectId: "task-manager-2-c4224",
-
-  storageBucket: "task-manager-2-c4224.appspot.com",
-
-  messagingSenderId: "1049680283065",
-
-  appId: "1:1049680283065:web:d116b5677adf230481a268"
-
+    apiKey: "AIzaSyDfT_IXUWWsn3LuYuLAB1YoN00ORmWBTmE",
+    authDomain: "portfolio-7c105.firebaseapp.com",
+    projectId: "portfolio-7c105",
+    storageBucket: "portfolio-7c105.appspot.com",
+    messagingSenderId: "751382361893",
+    appId: "1:751382361893:web:48b3a29fc4cfda1a628ccc",
+    measurementId: "G-Y2TKL7CNLS"
 };
 
 // Initialize Firebase
@@ -36,6 +31,7 @@ async function getTasks(db) {
   const taskList = taskSnapshot.docs.map((doc) => doc);
   return taskList;
 }
+
 
 const unsub = onSnapshot(collection(db, "tasks"), (doc) => {
   //   console.log(doc.docChanges());
@@ -66,13 +62,13 @@ form.addEventListener("submit", (event) => {
 });
 
 //delete task
-const taskContainer = document.querySelector(".tasks");
-taskContainer.addEventListener("click", (event) => {
-  if (event.target.tagName === "I") {
-    const id = event.target.getAttribute("data-id");
-    deleteDoc(doc(db, "tasks", id));
-  }
-});
+// const taskContainer = document.querySelector(".tasks");
+// taskContainer.addEventListener("click", (event) => {
+ //  if (event.target.tagName === "I") {
+  //  const id = event.target.getAttribute("data-id");
+   // deleteDoc(doc(db, "tasks", id));
+ // }
+// });
 
 // Upload Image Function (Create)
 function uploadImage() {
